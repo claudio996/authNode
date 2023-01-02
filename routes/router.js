@@ -18,7 +18,6 @@ router.get('/create', (req, res) => {
     res.render('create')
 })
 
-router.post('/save', categoriesController.save)
 
 router.get('/edit/:id', (req, res) => {
     const id = req.params.id;
@@ -32,6 +31,17 @@ router.get('/edit/:id', (req, res) => {
     )
 })
 
+router.post('/save', categoriesController.save);
+router.post('/update', categoriesController.update);
 
-
+router.get('/delete/:id', (req,res) => {
+    const id = req.params.id;
+    conexion.query('DELETE from categories where id = ? ', [id],(error,results)=> {
+        if (!error) {
+            res.redirect('/')
+        }else{
+            throw error;
+        }
+    })
+})
 module.exports = router
