@@ -3,19 +3,24 @@ const conexion = require('../database/db');
 const router = express.Router();
 const categoriesController = require('../controllers/categoriesController');
 
+
 router.get('/',(req, res) => {
+    res.render('index');
+
+})
+router.get('/categories',(req, res) => {
     conexion.query('SELECT * FROM categories', (error, results) => {
         if (error) {
             return
         } else {
-            res.render('index', { results: results })
+            res.render('categories/categories', { results: results })
         }
     })
 
 })
 
 router.get('/create', (req, res) => {
-    res.render('create')
+    res.render('categories/categoriesCreate')
 })
 
 

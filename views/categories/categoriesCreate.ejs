@@ -1,0 +1,27 @@
+<%- include("../templates/header") %>
+    <%- include("../templates/navbar") %>
+        <%- include("../templates/aside") %>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="card">
+                            <div class="card-header">
+                                Crear categoria
+                            </div>
+                            <div class="card-body">
+                                <form action="/save" method="post">
+                                    <div class="form-group">
+                                        <div class="col-md-8 mb=2">
+                                            <input type="text" class="form-control" name="name" id="name" autofocus
+                                                aria-describedby="categoria" placeholder="Ingrese nombre de categoria">
+
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include("../templates/footer") %>
